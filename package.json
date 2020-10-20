@@ -1,7 +1,7 @@
 {
   "name": "prescrimed-backend",
   "version": "1.0.0",
-  "author": "Kathleen (Kath) Alves <49501299+kdalves@users.noreply.github.com>",
+  "author": "Lucas Reis <lucasrdsmarley@gmail.com>",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
     "start": "node src/index.js"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
@@ -24,5 +23,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  }
+  },
+  "repository": "https://github.com/lucasreisds/prescrimed-backend.git"
 }
