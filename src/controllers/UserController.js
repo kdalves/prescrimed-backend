@@ -21,11 +21,11 @@ module.exports = {
 
     async update(req, res, next) {
         try {
-            const { Nome } = req.body
+            const { Nome, CPF, Admin, Status } = req.body
             const { id } = req.params
 
             await knex('usuarios')
-            .update({ Nome })
+            .update({ Nome, CPF, Admin, Status })
             .where({ IdUsuario: id });
 
             return res.send();
