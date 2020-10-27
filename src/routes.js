@@ -13,5 +13,8 @@ routes.delete('/usuarios/:id', UserController.delete);
 
 //Profissionais
 routes.get('/profissionais', ProfissionalController.index);
+routes.post('/profissionais', ProfissionalController.create);
+routes.put('/profissionais/:id', ProfissionalController.update);
+routes.delete('/profissionais/:id', ProfissionalController.delete);
 
 module.exports = routes;
