@@ -2,6 +2,7 @@ const express = require('express');
 
 const UserController = require('./controllers/UserController');
 const ProfissionalController = require('./controllers/ProfessionalController');
+const ProtocolController = require('./controllers/ProtocolController');
 const PrescriptionController = require('./controllers/PrescriptionController');
 const PatientController = require('./controllers/PatientController');
 
@@ -18,6 +19,12 @@ routes.get('/profissionais', ProfissionalController.index);
 routes.post('/profissionais', ProfissionalController.create);
 routes.put('/profissionais/:id', ProfissionalController.update);
 routes.delete('/profissionais/:id', ProfissionalController.delete);
+
+//Protocolos
+routes.get('/protocolos', ProtocolController.index);
+routes.post('/protocolos', ProtocolController.create);
+routes.put('/protocolos/:id', ProtocolController.update);
+routes.delete('/protocolos/:id', ProtocolController.delete);
 
 //Pacientes
 routes.get('/pacientes', PatientController.index);

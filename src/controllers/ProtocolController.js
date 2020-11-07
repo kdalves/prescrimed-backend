@@ -2,15 +2,15 @@ const knex = require('../database/connection');
 
 module.exports = {    
     async index(req, res) {        
-        const results = await knex('profissionais')
+        const results = await knex('protocolos')
         return res.json(results)
     },
 
     async create(req, res, next) {  
         try {
-            const { IdUsuario, Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body
-            await knex('profissionais')
-            .insert({ IdUsuario, Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor });
+            const { Sigla, Descricao, Indicacao, created_at, updated_at, deleted_at } = req.body
+            await knex('protocolos')
+            .insert({ Sigla, Descricao, Indicacao, created_at, updated_at, deleted_at });
 
             return res.status(201).send();
         } catch (error) {
@@ -20,12 +20,12 @@ module.exports = {
 
     async update(req, res, next) {
         try {
-            const { Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body
+            const { Sigla, Descricao, Indicacao, created_at, updated_at, deleted_at } = req.body
             const { id } = req.params
 
-            await knex('profissionais')
-            .update({ Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor })
-            .where({ IdProfissional: id });
+            await knex('protocolos')
+            .update({ Sigla, Descricao, Indicacao, created_at, updated_at, deleted_at })
+            .where({ IdProtocolo: id });
 
             return res.send();
 
@@ -38,8 +38,8 @@ module.exports = {
         try {
             const { id } = req.params
 
-            await knex('profissionais')
-            .where({ IdProfissional: id })
+            await knex('protocolos')
+            .where({ IdProtocolo: id })
             .del();
 
             return res.send();
