@@ -8,9 +8,9 @@ module.exports = {
 
     async create(req, res, next) {  
         try {
-            const { IdUsuario, Nome, CRM, CPF, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body
+            const { IdUsuario, Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body
             await knex('profissionais')
-            .insert({ IdUsuario, Nome, CRM, CPF, Fone, Email, IdEspecialidade, IdCategoria, IdSetor });
+            .insert({ IdUsuario, Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor });
 
             return res.status(201).send();
         } catch (error) {
@@ -20,11 +20,11 @@ module.exports = {
 
     async update(req, res, next) {
         try {
-            const { Nome, CRM, CPF, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body
+            const { Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body
             const { id } = req.params
 
             await knex('profissionais')
-            .update({ Nome, CRM, CPF, Fone, Email, IdEspecialidade, IdCategoria, IdSetor })
+            .update({ Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor })
             .where({ IdProfissional: id });
 
             return res.send();
