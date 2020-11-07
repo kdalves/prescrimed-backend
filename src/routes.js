@@ -2,6 +2,7 @@ const express = require('express');
 
 const UserController = require('./controllers/UserController');
 const ProfissionalController = require('./controllers/ProfessionalController');
+const PrescriptionController = require('./controllers/PrescriptionController');
 const PatientController = require('./controllers/PatientController');
 
 const routes = express.Router();
@@ -23,5 +24,11 @@ routes.get('/pacientes', PatientController.index);
 routes.post('/pacientes', PatientController.create);
 routes.put('/pacientes/:id', PatientController.update);
 routes.delete('/pacientes/:id', PatientController.delete);
+
+//Prescrição Médica
+routes.get('/prescricao', PrescriptionController.index);
+routes.post('/prescricao', PrescriptionController.create);
+routes.put('/prescricao/:id', PrescriptionController.update);
+routes.delete('/prescricao/:id', PrescriptionController.delete);
 
 module.exports = routes;
