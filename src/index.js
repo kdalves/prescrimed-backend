@@ -7,17 +7,17 @@ const app = express();
 const port = 3333;
 
 
-// if(process.env.NODE_ENV){
-//   require('dotenv').config({  
-//     path: process.env.NODE_ENV === "local" ? ".env.local" : ".env"
-//   })
-// }
-
 if(process.env.NODE_ENV){
   require('dotenv').config({  
-    path: ".env"
+    path: process.env.NODE_ENV === "local" ? ".env.local" : ".env"
   })
 }
+
+// if(process.env.NODE_ENV){
+//   require('dotenv').config({  
+//     path: ".env"
+//   })
+// }
 
 
 app.use(cors());
