@@ -41,5 +41,5 @@ app.use((error, req, res, next) => {
 
 app.listen(process.env.DB_PORT || port, (err) => {
   if(err) console.log('Erro no servidor:' + err );
-  else console.log('Servidor executando na porta:' + port);
+  else console.log('Servidor executando na porta:' + process.env.DB_PORT);
 });
