@@ -4,7 +4,7 @@ const routes = require('./routes');
 const cors = require('cors');
 
 const app = express();
-const port = 3333;
+const PORT = process.env.PORT || 3333;
 
 
 if(process.env.NODE_ENV){
@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
 });
 
 
-app.listen(process.env.PORT || port, (err) => {
+app.listen(PORT, (err) => {
   if(err) console.log('Erro no servidor:' + err );
-  else console.log('Servidor executando na porta:' + process.env.DB_PORT);
+  else console.log('Servidor executando na porta: ${PORT}');
 });
