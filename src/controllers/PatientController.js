@@ -1,3 +1,4 @@
+const { update } = require('../database/connection');
 const knex = require('../database/connection');
 
 module.exports = {    
