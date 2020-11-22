@@ -6,6 +6,16 @@ module.exports = {
         return res.json(results)
     },
 
+    async onlyOneInformation(req, res) {  
+        try {
+            const { id } = req.params
+            const results = await knex('protocolos').where({IdProtocolo: id})
+            return res.json(results)
+        } catch (error) {
+            return res.status(500).send();
+        }
+    },
+
     async create(req, res, next) {  
         try {
             const { Sigla, Descricao, Indicacao, created_at, updated_at, deleted_at } = req.body
