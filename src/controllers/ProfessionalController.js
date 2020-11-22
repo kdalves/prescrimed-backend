@@ -6,6 +6,16 @@ module.exports = {
         return res.json(results)
     },
 
+    async onlyOneInformation(req, res) {  
+        try {
+            const { id } = req.params
+            const results = await knex('profissionais').where({IdProfissional: id})
+            return res.json(results)
+        } catch (error) {
+            return res.status(500).send();
+        }
+    },
+
     async create(req, res, next) {  
         try {
             const { IdUsuario, Nome, CRM, Fone, Email, IdEspecialidade, IdCategoria, IdSetor } = req.body

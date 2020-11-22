@@ -7,6 +7,16 @@ module.exports = {
         return res.json(results)
     },
 
+    async onlyOneInformation(req, res) {
+        try {
+            const { id } = req.params
+            const results = knex('usuarios').where({IdUsuario: id})
+            return res.json(results)
+        } catch (error) {
+            return res.status(500).send();
+        }
+    },
+
     async create(req, res, next) {  
         try {
             const { Nome, CPF, Admin, Status } = req.body
