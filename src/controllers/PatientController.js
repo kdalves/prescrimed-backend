@@ -21,11 +21,11 @@ module.exports = {
         try {
             const { Nome, NomeSocial, Nascimento, Sexo, Documento, CPF, Endereco, Complemento, Bairro,
                     Cidade, UF, Cep, Fone, FoneCelular, Responsavel, FoneResponsavel, Naturalidade, Peso,
-                    Altura, Superficie, created_at, updated_at, deleted_at } = req.body
+                    Altura, Superficie } = req.body
             await knex('pacientes')
             .insert({ Nome, NomeSocial, Nascimento, Sexo, Documento, CPF, Endereco, Complemento, Bairro,
                       Cidade, UF, Cep, Fone, FoneCelular, Responsavel, FoneResponsavel, Naturalidade, Peso,
-                      Altura, Superficie, created_at, updated_at, deleted_at });
+                      Altura, Superficie });
 
             return res.status(201).send();
         } catch (error) {
