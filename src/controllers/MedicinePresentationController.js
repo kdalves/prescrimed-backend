@@ -3,14 +3,14 @@ const knex = require('../database/connection');
 
 module.exports = {    
     async index(req, res) {        
-        const results = await knex('prescricoes')
+        const results = await knex('medicamentodetalhes')
         return res.json(results)
     },
 
     async onlyOneInformation(req, res) {  
         try {
             const { id } = req.params
-            const results = await knex('prescricoes').where({IdPrescricao: id})
+            const results = await knex('medicamentodetalhes').where({IdMedicamentoDetalhe: id})
             return res.json(results)
         } catch (error) {
             return res.status(500).send();
@@ -19,11 +19,9 @@ module.exports = {
 
     async create(req, res, next) {  
         try {
-            const { IdPaciente, Identificacao, Data, IdProfissional, Situacao, DataAssinatura,
-                    IdUsuario } = req.body
-            await knex('prescricoes')
-            .insert({ IdPaciente, Identificacao, Data, IdProfissional, Situacao, DataAssinatura,
-                      IdUsuario });
+            const { IdMedicamento, Descricao, Dosagem, MedidaDose, IdVia } = req.body
+            await knex('medicamentodetalhes')
+            .insert({ IdMedicamento, Descricao, Dosagem, MedidaDose, IdVia });
 
             return res.status(201).send();
         } catch (error) {
@@ -33,14 +31,12 @@ module.exports = {
 
     async update(req, res, next) {
         try {
-            const { IdPaciente, Identificacao, Data, IdProfissional, Situacao, DataAssinatura,
-                    IdUsuario } = req.body
+            const { IdMedicamento } = req.body
             const { id } = req.params
 
-            await knex('prescricoes')
-            .update({ IdPaciente, Identificacao, Data, IdProfissional, Situacao, DataAssinatura,
-                      IdUsuario })
-            .where({ IdPrescricao: id });
+            await knex('medicamentodetalhes')
+            .update({ IdMedicamento, Descricao, Dosagem, MedidaDose, IdVia })
+            .where({ IdMedicamentoDetalhe: id });
 
             return res.send();
 
@@ -53,8 +49,8 @@ module.exports = {
         try {
             const { id } = req.params
 
-            await knex('prescricoes')
-            .where({ IdPrescricao: id })
+            await knex('medicamentodetalhes')
+            .where({ IdMedicamentoDetalhe: id })
             .del();
 
             return res.send();

@@ -5,6 +5,9 @@ const ProfissionalController = require('./controllers/ProfessionalController');
 const ProtocolController = require('./controllers/ProtocolController');
 const PrescriptionController = require('./controllers/PrescriptionController');
 const PatientController = require('./controllers/PatientController');
+const MedicineController = require('./controllers/MedicineController ');
+const MedicinePresentationController = require('./controllers/MedicinePresentationController');
+const AllergyController = require('./controllers/AllergyController');
 
 const routes = express.Router();
 
@@ -42,5 +45,27 @@ routes.get('/prescricao/:id', PrescriptionController.onlyOneInformation);
 routes.post('/prescricao', PrescriptionController.create);
 routes.put('/prescricao/:id', PrescriptionController.update);
 routes.delete('/prescricao/:id', PrescriptionController.delete);
+routes.delete('/pacientes/:id', PatientController.delete);
+
+//Medicamentos
+routes.get('/medicamentos', MedicineController.index);
+routes.get('/medicamentos/:id', MedicineController.onlyOneInformation);
+routes.post('/medicamentos', MedicineController.create);
+routes.put('/medicamentos/:id', MedicineController.update);
+routes.delete('/medicamentos/:id', MedicineController.delete);
+
+//Apresentação do Remédio
+routes.get('/apresentacao', MedicinePresentationController.index);
+routes.get('/apresentacao/:id', MedicinePresentationController.onlyOneInformation);
+routes.post('/apresentacao', MedicinePresentationController.create);
+routes.put('/apresentacao/:id', MedicinePresentationController.update);
+routes.delete('/apresentacao/:id', MedicinePresentationController.delete);
+
+//Alergias
+routes.get('/alergias', AllergyController.index);
+routes.get('/alergias/:id', AllergyController.onlyOneInformation);
+routes.post('/alergias', AllergyController.create);
+routes.put('/alergias/:id', AllergyController.update);
+routes.delete('/alergias/:id', AllergyController.delete);
 
 module.exports = routes;
