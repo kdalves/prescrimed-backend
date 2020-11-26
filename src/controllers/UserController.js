@@ -10,7 +10,7 @@ module.exports = {
     async onlyOneInformation(req, res) {
         try {
             const { id } = req.params
-            const results = knex('usuarios').where({IdUsuario: id})
+            const results = await knex('usuarios').where({IdUsuario: id})
             return res.json(results)
         } catch (error) {
             return res.status(500).send();
