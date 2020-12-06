@@ -10,7 +10,7 @@ module.exports = {
     async onlyOneInformation(req, res) {  
         try {
             const { id } = req.params
-            const results = await knex('PacienteAlergias').where({IdPaciente: id})
+            const results = await knex('PacienteAlergias').where({IdAlergia: id})
             return res.json(results)
         } catch (error) {
             return res.status(500).send();
@@ -36,7 +36,7 @@ module.exports = {
 
             await knex('PacienteAlergias')
             .update({ IdPaciente, Alergia })
-            .where({ IdPaciente: id });
+            .where({ IdAlergia: id });
 
             return res.send();
 
@@ -50,7 +50,7 @@ module.exports = {
             const { id } = req.params
 
             await knex('PacienteAlergias')
-            .where({ IdPaciente: id })
+            .where({ IdAlergia: id })
             .del();
 
             return res.send();
