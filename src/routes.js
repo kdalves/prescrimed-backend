@@ -46,7 +46,7 @@ routes.get('/prescricao/:id', PrescriptionController.onlyOneInformation);
 routes.post('/prescricao', PrescriptionController.create);
 routes.put('/prescricao/:id', PrescriptionController.update);
 routes.delete('/prescricao/:id', PrescriptionController.delete);
-routes.delete('/pacientes/:id', PatientController.delete);
+routes.delete('/prescricao/:id', PrescriptionController.delete);
 
 //Medicamentos
 routes.get('/medicamentos', MedicineController.index);
@@ -68,7 +68,7 @@ routes.get('/alergias/:id', AllergyController.onlyOneInformation);
 routes.post('/alergias', AllergyController.create);
 routes.put('/alergias/:id', AllergyController.update);
 routes.delete('/alergias/:id', AllergyController.delete);
-routes.delete('/apresentacao/:id', MedicinePresentationController.delete);
+routes.delete('/alergias/:id', AllergyController.delete);
 
 //Especialidade
 routes.get('/especialidade/:id', Specialityontroller.onlyOneInformation);
