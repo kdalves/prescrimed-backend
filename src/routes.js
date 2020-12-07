@@ -8,6 +8,7 @@ const PatientController = require('./controllers/PatientController');
 const MedicineController = require('./controllers/MedicineController ');
 const MedicinePresentationController = require('./controllers/MedicinePresentationController');
 const AllergyController = require('./controllers/AllergyController');
+const Specialityontroller = require('./controllers/SpecialtyController');
 
 const routes = express.Router();
 
@@ -67,5 +68,9 @@ routes.get('/alergias/:id', AllergyController.onlyOneInformation);
 routes.post('/alergias', AllergyController.create);
 routes.put('/alergias/:id', AllergyController.update);
 routes.delete('/alergias/:id', AllergyController.delete);
+routes.delete('/apresentacao/:id', MedicinePresentationController.delete);
+
+//Especialidade
+routes.get('/alergias/:id', Specialityontroller.onlyOneInformation);
 
 module.exports = routes;
