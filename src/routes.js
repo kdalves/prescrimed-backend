@@ -71,6 +71,6 @@ routes.delete('/alergias/:id', AllergyController.delete);
 routes.delete('/apresentacao/:id', MedicinePresentationController.delete);
 
 //Especialidade
-routes.get('/alergias/:id', Specialityontroller.onlyOneInformation);
+routes.get('/especialidade/:id', Specialityontroller.onlyOneInformation);
 
 module.exports = routes;
