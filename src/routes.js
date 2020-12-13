@@ -3,7 +3,9 @@ const express = require('express');
 const UserController = require('./controllers/UserController');
 const ProfissionalController = require('./controllers/ProfessionalController');
 const ProtocolController = require('./controllers/ProtocolController');
+const ProtocolDetailController = require('./controllers/ProtocolDetailController');
 const PrescriptionController = require('./controllers/PrescriptionController');
+const PrescriptionDetailController = require('./controllers/PrescriptionDetailController');
 const PatientController = require('./controllers/PatientController');
 const MedicineController = require('./controllers/MedicineController ');
 const MedicinePresentationController = require('./controllers/MedicinePresentationController');
@@ -33,6 +35,10 @@ routes.post('/protocolos', ProtocolController.create);
 routes.put('/protocolos/:id', ProtocolController.update);
 routes.delete('/protocolos/:id', ProtocolController.delete);
 
+//ProtocolosDetalhes
+routes.get('/protocolosDetalhe', ProtocolDetailController.index);
+routes.get('/protocolosDetalhe/:id', ProtocolDetailController.create);
+
 //Pacientes
 routes.get('/pacientes', PatientController.index);
 routes.get('/pacientes/:id', PatientController.onlyOneInformation);
@@ -46,7 +52,10 @@ routes.get('/prescricao/:id', PrescriptionController.onlyOneInformation);
 routes.post('/prescricao', PrescriptionController.create);
 routes.put('/prescricao/:id', PrescriptionController.update);
 routes.delete('/prescricao/:id', PrescriptionController.delete);
-routes.delete('/prescricao/:id', PrescriptionController.delete);
+
+//Prescrição Médica Detalhe
+routes.get('/prescricaoDetalhe', PrescriptionDetailController.index);
+routes.get('/prescricaoDetalhe/:id', PrescriptionDetailController.create);
 
 //Medicamentos
 routes.get('/medicamentos', MedicineController.index);
@@ -67,7 +76,6 @@ routes.get('/alergias', AllergyController.index);
 routes.get('/alergias/:id', AllergyController.onlyOneInformation);
 routes.post('/alergias', AllergyController.create);
 routes.put('/alergias/:id', AllergyController.update);
-routes.delete('/alergias/:id', AllergyController.delete);
 routes.delete('/alergias/:id', AllergyController.delete);
 
 //Especialidade
