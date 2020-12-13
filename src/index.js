@@ -4,7 +4,7 @@ const routes = require('./routes');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3333;
 
 
 if(process.env.NODE_ENV){
@@ -12,13 +12,6 @@ if(process.env.NODE_ENV){
     path: process.env.NODE_ENV === "local" ? ".env.local" : ".env"
   })
 }
-
-// if(process.env.NODE_ENV){
-//   require('dotenv').config({  
-//     path: ".env"
-//   })
-// }
-
 
 app.use(cors());
 app.use(express.json());
