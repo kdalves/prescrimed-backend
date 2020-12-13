@@ -9,9 +9,9 @@ module.exports = {
 
     async create(req, res, next) {  
         try {
-            const { IdProtocolo, IdVia, IdMedicamento, Dose, MedidaDose, posologia, posologia } = req.body
+            const { IdProtocolo, IdVia, IdMedicamento, Dose, MedidaDose, posologia } = req.body
             await knex('protocolodetalhes')
-            .insert({ IdProtocolo, IdVia, IdMedicamento, Dose, MedidaDose, posologia, posologia });
+            .insert({ IdProtocolo, IdVia, IdMedicamento, Dose, MedidaDose, posologia });
 
             return res.status(201).send();
         } catch (error) {
